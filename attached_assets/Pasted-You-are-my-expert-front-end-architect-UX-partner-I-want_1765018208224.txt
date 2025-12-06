@@ -1,0 +1,158 @@
+You are my expert front-end architect + UX partner.
+I want you to build a complete personal portfolio website for me based ONLY on:
+
+The resume file I’ve attached
+
+The instructions in this prompt
+
+GOAL & POSITIONING
+
+Build a single-developer portfolio for a Senior Frontend / UI Engineer & UI/UX Developer with ~10 years of experience and 6+ years in Angular.
+
+Position me as someone who can grow into a Front-End Architect / UI Engineering Lead role.
+
+Tone: confident, clear, professional, no fluff, no buzzword spam.
+
+THEME & VIBE
+
+Visual theme: “Flow of Nature” — smooth, organic, calm, but still modern and tech-ready.
+
+Think: flowing sections, soft curves, good whitespace, subtle gradients, smooth transitions.
+
+Dark-on-light or soft dark theme that feels minimal and premium.
+
+TECH & STRUCTURE
+
+Use modern HTML + CSS + TypeScript-friendly JS structure, easily portable into Angular later.
+
+Keep it component-minded: clear sections and reusable utility classes.
+
+Use CSS only (no Tailwind / Bootstrap) but keep classes semantic and tidy.
+
+Make it fully responsive (mobile, tablet, desktop).
+
+No build tools required – just a clean structure like:
+
+index.html
+
+styles.css
+
+script.js (only if really needed, otherwise stick to CSS and simple interactions)
+
+PAGES / SECTIONS
+
+Build it as a single-page portfolio with smooth scrolling navigation containing these sections:
+
+Hero / Intro
+
+Name, title (use my real title from the resume).
+
+Short 2–3 line summary written at an architect-level (ownership, systems thinking, UX focus).
+
+A clean CTA row: “View Projects”, “Download Resume”, “Contact”.
+
+Skills & Tech Stack
+
+Use skills from my resume, grouped like:
+
+Frontend (Angular versions, TS, JS, RxJS, HTML, CSS, SCSS)
+
+UI/UX (Responsive UI, design systems, theming, animations, Figma-to-UI, etc.)
+
+Architecture (component-driven design, lazy loading, state mgmt, performance, API patterns)
+
+Tools (put whatever is in my resume)
+
+Show skills in a visual layout: tags, grouped cards, or a simple grid.
+
+Highlighted Projects / Case Studies
+
+From the resume, extract my top 3–5 projects (like Arthakosh, TMS, container portals, etc.).
+
+For each project, show:
+
+Name
+
+Short description < 200 characters
+
+My role & contributions (focus on architecture, UX, performance, complex UI work)
+
+Tech used
+
+Write content in resume-friendly, recruiter-friendly language (short, sharp, bullet-like).
+
+Experience Timeline
+
+Take my work experience from the resume and build a vertical timeline.
+
+For each role: Company, Role, Duration, Key impact bullets (2–4 per role).
+
+Emphasize front-end ownership, design collaboration, and system-level thinking.
+
+Approach / How I Work
+
+A small section that explains how I think about:
+
+UI/UX decisions
+
+Component architecture
+
+Performance
+
+Collaboration with backend / design
+
+Base this on clues from my resume plus what’s typical for a senior frontend/UI engineer.
+
+Contact
+
+Simple contact section with:
+
+Email (placeholder)
+
+LinkedIn (placeholder)
+
+GitHub (placeholder)
+
+Make these easy to swap out later.
+
+DESIGN & INTERACTIONS
+
+Use smooth scroll, gentle hover states, and subtle animations (e.g., fade-in, translateY).
+
+Reflect the “flow of nature” in:
+
+Section dividers (curved, wavy, or organic shapes using pure CSS and SVG if needed)
+
+Backgrounds (soft gradients or subtle textures)
+
+Avoid heavy parallax or over-the-top effects. Keep it fast and lightweight.
+
+CONTENT RULES
+
+Extract real data (experience, projects, skills) from my attached resume wherever possible.
+
+Where details are missing, fill with sensible, realistic placeholders, but keep them minimal.
+
+NO lorem ipsum.
+
+DELIVERABLE
+
+Return the complete code with:
+
+Full index.html (semantic, accessible structure)
+
+styles.css (organized sections, comments for each main section)
+
+script.js (only if actually needed for interactions like smooth scroll, else skip)
+
+Make sure the code is ready to paste into a Replit project and run immediately.
+
+At the end, briefly explain:
+
+How the layout is structured
+
+Where I can change my info (name, title, resume link, project details, social links)
+
+Which parts are best starting points if I later convert this into an Angular app.
+
+Use clean, production-quality code and keep everything focused on my profile from the resume.
