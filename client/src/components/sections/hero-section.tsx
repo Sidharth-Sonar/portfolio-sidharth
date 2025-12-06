@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, FileText, Mail } from "lucide-react";
 import { OrganicBlob } from "../wave-divider";
+import resumePdf from "@assets/Sidharth_Sonar_Frontend_Architect_20251203_1765017894687.pdf";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -73,7 +74,7 @@ export function HeroSection() {
             asChild
             data-testid="button-download-resume"
           >
-            <a href="#" download>
+            <a href={resumePdf} download="Sidharth_Sonar_Resume.pdf">
               <FileText className="mr-2 h-4 w-4" />
               Download Resume
             </a>
