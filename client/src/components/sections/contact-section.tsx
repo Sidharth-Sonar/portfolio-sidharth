@@ -21,8 +21,6 @@ import {
     insertContactMessageSchema,
     type InsertContactMessage,
 } from "@shared/schema";
-import {useMutation} from "@tanstack/react-query";
-// ❌ removed apiRequest import
 import {
     Form,
     FormControl,
@@ -67,6 +65,7 @@ export function ContactSection() {
     const {ref, isInView} = useInView({threshold: 0.1});
     const {toast} = useToast();
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
 
     const form = useForm<InsertContactMessage>({
         resolver: zodResolver(insertContactMessageSchema),
@@ -78,8 +77,10 @@ export function ContactSection() {
         },
     });
 
-    const contactMutation = useMutation({
-        mutationFn: async (data: InsertContactMessage) => {
+    const onSubmit = async (data: InsertContactMessage) => {
+        try {
+            setIsSending(true);
+
             const formData = new FormData();
             formData.append("name", data.name);
             formData.append("email", data.email);
@@ -96,20 +97,29 @@ export function ContactSection() {
 
             const body = await res.json();
 
-            if (!res.ok) {
-                // e.g. FORM_NOT_FOUND, bad request, etc.
+            if (!res.ok || body.ok === false) {
                 throw new Error(body.error || "Failed to send message. Please try again later.");
             }
 
-            return body;
-        },
-        // ...onSuccess/onError as before
-    });
+            setIsSubmitted(true);
+            form.reset();
 
-
-    const onSubmit = (data: InsertContactMessage) => {
-        contactMutation.mutate(data);
+            toast({
+                title: "Message sent! 🎉",
+                description: "Thanks for reaching out — I’ll get back to you soon.",
+            });
+        } catch (error: any) {
+            console.error(error);
+            toast({
+                title: "Failed to send message",
+                description: error?.message || "Please try again later.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsSending(false);
+        }
     };
+
 
     return (
         <>
@@ -257,20 +267,15 @@ export function ContactSection() {
                                                         </FormItem>
                                                     )}
                                                 />
-                                                <Button
-                                                    type="submit"
-                                                    className="w-full"
-                                                    disabled={contactMutation.isPending}
-                                                    data-testid="button-submit-contact"
-                                                >
-                                                    {contactMutation.isPending ? (
+                                                <Button type="submit" className="w-full" disabled={isSending} data-testid="button-submit-contact">
+                                                    {isSending ? (
                                                         <>
-                                                            <Loader2 className="mr-2 h-4 w-4 animate-spin"/>
+                                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                                             Sending...
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <Send className="mr-2 h-4 w-4"/>
+                                                            <Send className="mr-2 h-4 w-4" />
                                                             Send Message
                                                         </>
                                                     )}
