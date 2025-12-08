@@ -267,6 +267,15 @@ export function ContactSection() {
                                                         </FormItem>
                                                     )}
                                                 />
+                                                {/* 🟡 Honeypot – catches bots, invisible to humans */}
+                                                <input
+                                                    type="text"
+                                                    name="_gotcha"
+                                                    className="hidden"
+                                                    tabIndex={-1}
+                                                    autoComplete="off"
+                                                />
+
                                                 <Button type="submit" className="w-full" disabled={isSending} data-testid="button-submit-contact">
                                                     {isSending ? (
                                                         <>
