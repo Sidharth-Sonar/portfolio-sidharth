@@ -74,21 +74,31 @@ const projects: Project[] = [
         ],
         tech: ["Angular 15", "Reactive Forms", "REST APIs", "Lazy Loading"],
         caseStudy: {
-            challenge: "The container logistics company needed a robust invoicing system that could handle complex TDS calculations, multiple payment modes, and compliance requirements specific to the Indian logistics industry.",
-            approach: "I designed a modular architecture that separated concerns between invoice generation, tax calculation, and payment processing while maintaining a seamless user experience.",
+            challenge:
+                "The system stored only internal accounting charge names, while vendors used completely different charge terminology. This created heavy dependency on documents or experienced team members, increased cognitive load for users, and made onboarding new users extremely difficult.",
+
+            approach:
+                "I approached this as a product and system design problem rather than just a UI change. The goal was to bridge vendor language with internal accounting terms in a way that removed human dependency, scaled across vendors, and worked seamlessly across invoice and payout workflows.",
+
             solution: [
-                "Created a dynamic invoice builder with customizable line items and tax configurations",
-                "Implemented automatic TDS calculation engine with configurable tax slabs",
-                "Built a real-time payout tracking dashboard with status updates",
-                "Developed export functionality for GST-compliant reports",
+                "Designed and implemented a Vendor Charge Master to map vendor-specific charge terminology to internal accounting charge heads",
+                "Allowed direct mapping of vendor-used terms to accounting-recognized charges, removing the need for memorization or reference documents",
+                "Introduced an Alias Group concept for vendor group companies sharing the same charge vocabulary",
+                "Enabled reuse of mappings across group companies, eliminating duplicate configuration work",
+                "Ensured mappings were automatically consumed by invoice and payout workflows",
+                "Designed a simple, searchable UI that new users could understand without prior domain knowledge",
             ],
+
             results: [
-                "Invoice generation time reduced from 15 minutes to 2 minutes",
-                "100% compliance with GST and TDS regulatory requirements",
-                "Zero manual intervention needed for standard invoicing workflows",
-                "Seamless integration with 3 different payment gateways",
+                "Eliminated dependency on documents and specific individuals for charge interpretation",
+                "New users could process invoices confidently without knowing vendor-specific charge jargon",
+                "Significant reduction in time spent on vendor onboarding and charge setup",
+                "Consistent charge understanding across finance, accounting, and vendor teams",
+                "Invoice and payout workflows became faster, more reliable, and error-free",
             ],
-            technicalDetails: "Utilized Angular Reactive Forms with complex cross-field validation. Implemented a state machine pattern for invoice status management and created custom directives for currency formatting and tax calculations.",
+
+            technicalDetails:
+                "Built as a modular Angular feature integrated into invoice and payout workflows. Focused on reusability, clean data modeling, and UX clarity. Alias Group logic ensured scalable configuration across vendor group companies while keeping the UI intuitive for first-time users.",
         },
     },
     {
