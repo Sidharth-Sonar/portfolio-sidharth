@@ -78,15 +78,15 @@ const projects: Project[] = [
                 "The system stored only internal accounting charge names, while vendors used completely different charge terminology. This created heavy dependency on documents or experienced team members, increased cognitive load for users, and made onboarding new users extremely difficult.",
 
             approach:
-                "I approached this as a product and system design problem rather than just a UI change. The goal was to bridge vendor language with internal accounting terms in a way that removed human dependency, scaled across vendors, and worked seamlessly across invoice and payout workflows.",
+                "I treated this as a platform-level design problem, focusing on vocabulary normalization, reusability, and UX clarity to remove human dependency and ensure scalability across vendors and financial workflows.",
 
             solution: [
-                "Designed and implemented a Vendor Charge Master to map vendor-specific charge terminology to internal accounting charge heads",
-                "Allowed direct mapping of vendor-used terms to accounting-recognized charges, removing the need for memorization or reference documents",
-                "Introduced an Alias Group concept for vendor group companies sharing the same charge vocabulary",
-                "Enabled reuse of mappings across group companies, eliminating duplicate configuration work",
-                "Ensured mappings were automatically consumed by invoice and payout workflows",
-                "Designed a simple, searchable UI that new users could understand without prior domain knowledge",
+                "Designed and implemented a scalable Vendor Charge Master as a core configuration layer between vendor invoices and internal accounting systems",
+                "Created a normalized mapping model linking vendor-used charge terminology to accounting-recognized charge heads",
+                "Designed the UI for fast discovery using search, grouping, and clear vocabulary alignment for first-time users",
+                "Introduced an Alias Group architecture to support vendor group companies sharing identical charge vocabularies, eliminating redundant configurations",
+                "Ensured mappings are reusable and automatically consumed across Invoice and Payout workflows",
+                "Focused on low cognitive load UX, allowing users to understand charge relationships without external documents or tribal knowledge",
             ],
 
             results: [
@@ -280,6 +280,11 @@ function ProjectModal({project, open, onClose}: ProjectModalProps) {
                     <div className="flex items-start justify-between gap-4 pr-8">
                         <div>
                             <Badge variant="outline" className="mb-2">{project.role}</Badge>
+                            {project.name === "Invoice & Payout System" && (
+                                <Badge variant="secondary" className="mb-3 text-xs tracking-wide uppercase">
+                                    Platform Configuration Layer
+                                </Badge>
+                            )}
                             <DialogTitle className="text-2xl font-bold">{project.name}</DialogTitle>
                             <DialogDescription className="mt-2">
                                 {project.description}
